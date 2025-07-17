@@ -1,0 +1,16 @@
+Modality,User Question,Suggested Tool(s),Typical Output
+Annotated Genome,"What genes are present in this genome, and what do they do?",Bakta | Prokka,"Functional annotation of coding sequences, gene product names, EC numbers, etc."
+Annotated Genome,Can you tell me if this genome has any antibiotic resistance or virulence genes?,Bakta | Prokka,Annotation with resistance/virulence gene databases
+Annotated Genome,What pathways or metabolic functions can this organism perform?,Bakta | Prokka,"KEGG/GO terms, pathway annotations, transporter genes"
+Pangenomics,What genes are shared across all strains of this species?,tmhg-finder,Core genome analysis
+Pangenomics,What genes are unique to this particular strain or group?,tmhg-finder,Accessory or strain-specific gene analysis
+Pangenomics,Are there genes that might explain differences in pathogenicity or host specificity?,tmhg-finder,Group-specific markers and gene content variation
+Metagenomic Taxonomic Profiling,What organisms are present in my metagenomic sample?,,Relative abundance of taxa from phylum to species level
+Metagenomic Taxonomic Profiling,Which microbial groups dominate my sample?,,Top taxa by abundance
+Metagenomic Taxonomic Profiling,How does the microbial community differ between these two conditions?,,"Beta-diversity, differential abundance analysis"
+Read Classification,Do any of my reads match genes associated with pathogenicity or toxins?,SeqScreen,Functional biosafety screening
+Read Classification,Can you flag any sequences in this sample that could pose a synthetic biology risk?,SeqScreen,Detection of Dual-Use Research of Concern (DURC) signatures
+Read Classification,"What functions can be inferred directly from the reads, even if I don’t assemble them?",SeqScreen,Read-level function prediction using curated databases
+16S Taxonomic Profiling,Which bacteria are present in my 16S sample?,,Taxonomic classification to genus/species depending on region sequenced
+16S Taxonomic Profiling,How diverse is the microbial community in my sample?,,"Alpha diversity metrics like Shannon, Simpson"
+16S Taxonomic Profiling,Are there significant differences in microbial composition between my groups?,,"Beta diversity and statistical tests like PERMANOVA, LEfSe"

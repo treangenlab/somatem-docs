@@ -167,3 +167,26 @@ List
 	- I want sahil to edit this file as appropriate (write access needed); so will need to copy ~~move~~ it into the `omi` repo.
 	- will explore making a sub-module that's shared in both repos in the future if > 2 changes are being made by Sahil..
 	- (*Not possible to use git supported soft links to share with another computer*) But need some simlink mechanism to keep the files linked // need some way to sync their commit history as well - *currently will need to do this manually?*
+
+## LLM Bioinformatics Training Pairs
+`llm_bioinformatics_training_pairs_with_output.csv`
+16/Jul/25 - flowchart -> questions
+
+I generated these questions using chatGPT with the following prompt (_condensed 3 serial prompts into 1_):
+
+```prompt
+I am building an LLM to be used by biologists without bioinformatics background to run bioinformatic tools. The broad modality of my tools is listed with specific tools in brackets.
+How would a biologist with metagenomic data at hand describe questions that each of the following bioinformatic tools would answer. Give me 3 questions for each modality.
+- Annotated genome (Bakta | Prokka)
+- Pangenomics (tmhg-finder)
+- Metagenomic taxonomic profiling
+- Read classification (SeqScreen)
+- 16S taxonomic profiling
+
+Please output this as a csv file. And include the typical output of the tool as well. Such as 
+**“What genes are present in this genome, and what do they do?”**  
+_(→ Functional annotation of coding sequences, gene product names, EC numbers, etc.)
+```
+
+TODO: 
+- [ ] Add more nodes to this list or use the full flowchart. _This was only a starting point with a few key nodes to get started._
