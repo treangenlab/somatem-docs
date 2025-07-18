@@ -150,11 +150,14 @@ _Check how MetAMOS report was made from scratch says Todd_
 - viral: [NCBI Viral Genomes](https://www.ncbi.nlm.nih.gov/genome/viruses/)
 
 # Other workflows to learn from
-- [mapo tofu](https://github.com/ikmb/TOFU-MAaPO)
-  - [Sylph module](https://github.com/ikmb/TOFU-MAaPO/blob/master/modules/sylph.nf)
+- [CAMP](https://github.com/Meta-CAMP) ; [paper](https://www.biorxiv.org/content/10.1101/2023.04.09.536171v3.full) is a snakemake workflow that aims to be one-click deployment but also modular. They work with long-reads and hybrid assemblies along with short-reads. They are also incorporating an LLM called bootcamp similar to omi. So they might really beat us with the Somatem?
+- [aviary](https://github.com/rhysnewell/aviary) is a snakemake workflow that Austin espouses, but Todd doesn't like that it's not published.
+> (_Austin_) This is the pipeline used for our previous depletion paper and also put together by Ben woodcraft’s group, has singlem and all the rest of their m tools 
+
+- [mapo tofu](https://github.com/ikmb/TOFU-MAaPO) is a nextflow pipeline for short reads. 
+  - Can borrow their [Sylph module](https://github.com/ikmb/TOFU-MAaPO/blob/master/modules/sylph.nf)?
 - [BugBuster](https://github.com/gene2dis/BugBuster)
   - _No tool in our list_
-
 
 # Derivatives of this doc
 
