@@ -1,0 +1,94 @@
+{
+    "Centrifuge": [
+        "short-read classification",
+        "whole-genome shotgun"
+    ],
+    "Emu": [
+        "full-length 16S rRNA",
+        "long-read sequencing",
+        "species-level resolution",
+        "taxonomic abundance"
+    ],
+    "Sylph": [
+        "low-abundance detection",
+        "strain-level profiling"
+    ],
+    "Lemur": [
+        "marker gene",
+        "long-read profiling",
+        "false positive reduction",
+        "portable sequencing"
+    ],
+    "Magnet": [
+        "whole-genome mapping",
+        "long-read shotgun",
+        "bacterial genome detection"
+    ],
+    "SeqScreen": [
+        "pathogen characterization",
+        "functional annotation",
+        "synthetic DNA screening"
+    ],
+    "EggNog-mapper": [
+        "functional annotation",
+        "orthology assignment",
+        "gene prediction",
+        "protein domain discovery"
+    ],
+    "Rhea": [
+        "structural variant detection",
+        "strain-level resolution",
+        "reference-free analysis"
+    ],
+    "Bakdrive": [
+        "driver species",
+        "ecological networks",
+        "control theory",
+        "host-specific variation",
+        "microbiome restoration"
+    ],
+    "Apollo": [
+        "genome annotation"
+    ],
+    "Flye": [
+        "metagenomic datasets",
+        "intra-species heterogeneity",
+        "high contiguity",
+        "biosynthetic gene clusters"
+    ],
+    "Chopper": [
+        "Oxford Nanopore",
+        "PacBio support"
+    ],
+    "Hostile": [
+        "host read removal",
+        "decontamination",
+        "high precision filtering",
+        "human-microbial separation"
+    ],
+    "Canu": [
+        "de novo assembly",
+        "noisy long reads",
+        "adaptive overlapping"
+    ],
+    "NanoPlot": [
+        "quality assessment",
+        "phased alignment"
+    ],
+    "Parsnp": [
+        "multiple genome alignment",
+        "core-genome analysis",
+        "bacterial genomes"
+    ],
+    "tMHG-Finder": [
+        "maximal homologous groups",
+        "guide tree scaling",
+        "evolutionary analysis",
+        "phylogenomic comparison"
+    ],
+    "AutoCycler": [
+        "consensus assembly",
+        "structural accuracy",
+        "Oxford Nanopore"
+    ]
+}
