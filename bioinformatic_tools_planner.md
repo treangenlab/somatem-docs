@@ -153,6 +153,7 @@ _Check how MetAMOS report was made from scratch says Todd_
 - [CAMP](https://github.com/Meta-CAMP) ; [paper](https://www.biorxiv.org/content/10.1101/2023.04.09.536171v3.full) is a snakemake workflow that aims to be one-click deployment but also modular. They work with long-reads and hybrid assemblies along with short-reads. They are also incorporating an LLM called bootcamp similar to omi. So they might really beat us with the Somatem?
 - [aviary](https://github.com/rhysnewell/aviary) is a snakemake workflow that Austin espouses, but Todd doesn't like that it's not published.
 > (_Austin_) This is the pipeline used for our previous depletion paper and also put together by Ben woodcraft’s group, has singlem and all the rest of their m tools 
+- [cloudres](https://github.com/maxlcummins/cloudres): MLST assignment and AMR detection. _could learn/borrow code_
 
 - [mapo tofu](https://github.com/ikmb/TOFU-MAaPO) is a nextflow pipeline for short reads. 
   - Can borrow their [Sylph module](https://github.com/ikmb/TOFU-MAaPO/blob/master/modules/sylph.nf)?
