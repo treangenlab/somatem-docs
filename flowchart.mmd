@@ -6,7 +6,7 @@ config:
 ---
 flowchart TD
 
- rawreads["Raw reads<br>(Nanopore | Pacbio | SLR)"] --> initqc
+ rawreads["Raw reads<br>(Nanopore | Pacbio)"] --> initqc
 
 
  subgraph Preprocess
@@ -18,20 +18,7 @@ flowchart TD
      initqc --> trimming --> dehost --> finalqc
  end
 
- subgraph Laptop_Mode["Laptop mode<br>(read based)"]
-     tax16s["Taxonomic profiling<br>(Emu)"]
-          
-     readanalysis(["Other read based analysis"])
-     classification["Read classification<br>(SeqScreen | Centrifuge)"]
-     pathogen["Pathogen identification<br>(MAGnet | SeqScreen)"]
-     functional["Functional annotation<br>(SeqScreen | EggNOG-mapper | HUMAnN)"]
-     
-     taxonomic["Taxonomic profiling<br>(Lemur + MAGnet | Centrifuge | Sylph)"]
-
-     readanalysis --> classification & pathogen & functional
- end
-
- subgraph Workstation_Mode["Workstation mode<br>(assembly-based)"]
+ subgraph Workstation_Mode["Workstation/Server mode<br>(assembly-based)"]
      assembly(["Assembly"])
      denovo["De novo<br>(Flye | Canu | AutoCycler)"] --> binning
      refguided["Reference-guided<br>(MetaCompass)"]
@@ -43,11 +30,23 @@ flowchart TD
      genesnp["Structural variation<br> Gene duplication/loss<br>(rhea)"]
      metabolic["Metabolic reconstruction<br>(bakdrive + micom | apollo)"]
      
-     assembly --> denovo
-     assembly -."future".-> refguided -.-> annotation 
-     binning --> annotation
+     assembly --> denovo & refguided
+     binning & refguided --> annotation
      annotation --> othergenomic
      othergenomic --> pangenomics & genesnp & metabolic
+
+    subgraph Laptop_Mode["Laptop mode<br>(read based)"]
+     tax16s["Taxonomic profiling<br>(Emu)"]
+          
+     readanalysis(["Other read based analysis"])
+     classification["Read classification<br>(SeqScreen | Centrifuge)"]
+     pathogen["Pathogen identification<br>(MAGnet | SeqScreen)"]
+     functional["Functional annotation<br>(SeqScreen | EggNOG-mapper | HUMAnN)"]
+     
+     taxonomic["Taxonomic profiling<br>(Lemur + MAGnet | Centrifuge | Sylph)"]
+
+     readanalysis --> classification & pathogen & functional
+    end
 
  end
 
