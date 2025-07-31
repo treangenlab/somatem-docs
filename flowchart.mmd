@@ -6,7 +6,7 @@ config:
 ---
 flowchart TD
 
- rawreads["Raw reads<br>(Nanopore | Pacbio)"] --> initqc
+ rawreads>"Raw reads<br>(Nanopore | Pacbio)"] --> initqc
 
 
  subgraph Preprocess
@@ -15,47 +15,56 @@ flowchart TD
      trimming["Quality/adapter trimming<br>(chopper | fitlong)"]  
      dehost["Remove host contamination<br>(hostile)"]
      finalqc["final QC<br>(NanoPlot)"]
-     initqc --> trimming --> dehost --> finalqc
+     
+     reads>"cleaned reads"]
+     initqc --> trimming --> dehost --> finalqc --> reads
  end
 
- subgraph Workstation_Mode["Workstation/Server mode<br>(assembly-based)"]
-     assembly(["Assembly"])
-     denovo["De novo<br>(Flye | Canu | AutoCycler)"] --> binning
-     refguided["Reference-guided<br>(MetaCompass)"]
-     binning["Binning<br>(VAMB | Semibin2 | metabat2)"]
-     annotation["Genome annotation<br>(Bakta | Prokka)"]
-     
-     othergenomic(["multi-genomic analyses"])
-     pangenomics["Pangenomics<br>(tmhg-finder)"]
-     genesnp["Structural variation<br> Gene duplication/loss<br>(rhea)"]
-     metabolic["Metabolic reconstruction<br>(bakdrive + micom | apollo)"]
-     
-     assembly --> denovo & refguided
-     binning & refguided --> annotation
-     annotation --> othergenomic
-     othergenomic --> pangenomics & genesnp & metabolic
-
-    subgraph Laptop_Mode["Laptop mode<br>(read based)"]
-     tax16s["Taxonomic profiling<br>(Emu)"]
-          
-     readanalysis(["Other read based analysis"])
-     classification["Read classification<br>(SeqScreen | Centrifuge)"]
-     pathogen["Pathogen identification<br>(MAGnet | SeqScreen)"]
-     functional["Functional annotation<br>(SeqScreen | EggNOG-mapper | HUMAnN)"]
-     
-     taxonomic["Taxonomic profiling<br>(Lemur + MAGnet | Centrifuge | Sylph)"]
-
-     readanalysis --> classification & pathogen & functional
-    end
-
- end
-
- finalqc --"16S amplicon"--> tax16s
- finalqc --"metagenomic"--> taxonomic & readanalysis
- finalqc --"metagenomic"--> assembly
  
+ assembly(["Assembly"])
+ denovo["De novo<br>(MetaFlye)"]
+ refguided["Reference-guided<br>(MetaCompass)"]
+ binning["Binning<br>(VAMB | Semibin2 | metabat2)"]
+ annotation["Genome annotation<br>(Bakta)"]
 
-%% Notes:
+ genesnp["Structural variation<br> Gene duplication/loss<br>(rhea)"]
+
+  %% for future implementation 
+  %% othergenomic(["multi-genomic analyses"])
+  %% pangenomics["Pangenomics<br>(tmhg-finder)"]
+  %% metabolic["Metabolic reconstruction<br>(bakdrive + micom | apollo)"]
+  %% othergenomic --> pangenomics & genesnp & metabolic
+  
+ assembly --> denovo & refguided
+ denovo & refguided --> contigs>"contigs"]
+ denovo --> binning
+ binning & refguided --> annotation
+ annotation --> genome>"(meta)genomes,<br>circos plots"]
+
+ pathogen["Pathogen identification<br>(SeqScreen)"]
+
+ subgraph Laptop_Mode["Laptop mode<br>(read based)"]
+  taxonomic["Taxonomic profiling<br>(Lemur + MAGnet ; Emu (16S) | Centrifuge | Sylph)"]
+ end
+
+ reads --"taxonomic profiling"--> taxonomic  
+ reads --"functional annotation"--> pathogen
+ reads --"assembly"--> assembly
+ reads --"longitudinal analysis"--> genesnp
+
+ %%  Co-analysis for higher confidence
+%%  hard to show this even as a sub-graph (distorts the flowchart)
+%%  co-analysis["Co-analysis for higher confidence"] 
+%%  reads & contigs --> co-analysis --> taxonomic & pathogen 
+
+
+%% Style rendering
+    style contigs fill:#C8E6C9
+    style reads fill:#C8E6C9
+    style genome fill:#BBDEFB 
+    style rawreads fill:#FFE0B2
+
+%% Notes: from v1-whiteboard
 %% What could be "Synthetic data" near data types?
 %% Preprocessing: 
 %%   add length to trimming node (length filtering)
