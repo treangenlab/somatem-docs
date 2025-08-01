@@ -1,5 +1,22 @@
 # GitHub Best Practices Guide
 
+## Quick summary:
+- Always work close to the main branch
+- Make a feature branch for each small modular task. _name the branch with a modular name / include the issue number if it is related to an issue_
+- Make multiple commits for small changes in one/more files. _if the commit solves the issue add "fix #issue_number" to the commit message, example: "fix #18" to close issue 18 automatically_
+- Make a pull request to merge the branch into main leaving a trace on github for quick reference in the future
+  - Definitely helpful if you want someone else to review the code and check that everything works well before merging into main
+
+To make pull request
+- You might see a "recent changes made to branch" message on the top of the page
+  - If not, go to branch on github
+  - click on `contribute` button on the top right
+  - click on `open pull request` button in green
+- Add a title and details to summarize the changes from multiple commits and include issue numbers. Confirm by clicking on `create pull request` button in green
+- If there are no conflicts, the pull request can be merged automatically
+  - If there are conflicts, you will need to resolve them before the pull request can be merged
+- Once reviewerd and merged, delete the branch
+
 ## Branching Strategy
 
 ### Branch Naming
