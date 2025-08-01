@@ -17,6 +17,11 @@ To make pull request
   - If there are conflicts, you will need to resolve them before the pull request can be merged
 - Once reviewerd and merged, delete the branch
 
+A finished PR looks like this (observe the few commits ; detailed description ; link to issue ; title could be improved..)
+<img width="1109" height="576" alt="image" src="https://github.com/user-attachments/assets/8fa74eef-73ec-497e-af2b-0961cd92cfdc" />
+
+
+
 ## Branching Strategy
 
 ### Branch Naming
