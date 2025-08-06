@@ -1,0 +1,79 @@
+# let us mimic the metadata_template.yaml to mention implications of each field
+
+# skipping the 'question:' field since it is subjective
+
+
+# describe the type of data you have from the options below
+data_type: 
+  - 16S: 
+      - "16S amplicon sequence data from a microbial community"
+      - "outputs: genus or higher level taxonomic mapping of each read (rarely species level) and relative abundance"
+      - analysis_type: taxonomic-profiling
+        - tool: Emu
+  - isolate: 
+      - "genomic DNA sequence data from a single microbial isolate"
+      - "Can assemble a genome using the reads"
+      - analysis_type: assembly
+  - metagenomic: 
+      - "metagenomic sequence data from a microbial community"
+      - "Generates higher resolution (species or strain level) taxonomic mapping of each read compared to 16S"
+      - analysis_type: [taxonomic-profiling / pathogen / assembly / genome-dynamics]
+
+# describe the type of analysis you want to perform from the options below
+analysis_type: 
+  - taxonomic-profiling: 
+      - "Profiling the taxonomic composition (species match and relative abundance)"
+      - "Taxonomic profiling is the process of identifying the taxonomic identity (genus, species, strain) of each read in a metagenomic sample (16S, shotgun) and computing the relative abundance of each taxon in the sample."
+  - assembly: 
+      - "assemble the reads into genomes to yield annotated genome/contigs (.fasta) and circos plot"
+      - "Assembly is the process of reconstructing the genome of a microbial isolate or microbial community (MAGs) from genomic DNA sequence reads."
+  - pathogen: 
+      - "detect pathogens in the reads using functional profiling (based on genes/functional sequences of known pathogens)"
+      - "Pathogen detection is the process of identifying the presence of pathogens in a metagenomic sample (16S, shotgun) using functional profiling (based on virulence genes/functional sequences of known pathogens)."
+  - genome-dynamics: 
+      - "genomic variation across multiple samples (time-series or cross-section). Provides a variant abundance over time plot."
+      - "Rhea is a useful tool for genomic variation analysis from time-series samples. It can identify SVs (structural variants) and SNVs (single nucleotide variants)"
+      - tool: Rhea
+
+# describe the status of single or multiple samples
+sample_status: 
+  - cross-section: 
+      - "One or more samples of microbial communities that are not time-series (default)"
+      - ""
+  - longitudinal: 
+      - "(time series) A series of multiple samples from the same microbial community"
+      - "Rhea is a useful tool for genomic variation analysis from time-series samples. It can identify SVs (structural variants) and SNVs (single nucleotide variants)"
+      - analysis_type: genome-dynamics
+        - tool: Rhea
+
+# # sequencing technology used to generate the reads
+# sequencing_technology: 
+#   - nanopore: 
+#       - "Oxford Nanopore (ONT): Higher error rates (default)"
+#       - "Currently this doesn't influence the pipeline. @Austin: thoughts?"
+#   - pacbio: 
+#       - "Pacific Biosciences (PacBio): Lower error rates"
+#       - "Currently this doesn't influence the pipeline. @Austin: thoughts?"
+
+# running mode: determines what analysis tools can be run
+running_mode: 
+  - laptop: 
+      - "runs on a laptop. Only does taxonomic profiling (default)"
+      - analysis_type: taxonomic-profiling
+  - cluster: 
+      - "runs on a cluster or workstation. Can perform all analysis_types (including assembly)"
+      - analysis_type: [taxonomic-profiling / pathogen / assembly / genome-dynamics]
+
+
+# confidence level of profiling analyses: 
+confidence_level: 
+  - high: 
+      - "uses both assembled contigs and reads to yield a more accurate profile (default)"
+      - "Taxonomic/functional profiling tools can use both raw reads and assembled contigs. By running both versions and finding the consensus, you can yield a more accurate profile"
+      - analysis_type: [taxonomic-profiling / pathogen] on reads + contigs from [assembly] -> [taxonomic-profiling / pathogen] 
+        
+  - regular: 
+      - "uses only reads to yield a profile, and is faster (default)"
+      - "Does not run assembly to make contigs before taxonomic/functional profiling. This is faster and can run on a laptop. If higher accuracy is desired, please select high confidence level"
+
+

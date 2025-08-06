@@ -19,14 +19,21 @@ data_type: ""
 analysis_type: ""
 
 # describe the status of single or multiple samples
-# 1. cross-section = One or more samples from (default)
-# 2. longitudinal = A time series of samples
+# 1. cross-section = One or more samples of microbial communities that are not time-series (default)
+# 2. longitudinal = (time series) A series of multiple samples from the same microbial community
 sample_status: ""
 
 # sequencing technology used to generate the reads
 # 1. nanopore = Oxford Nanopore (ONT): Higher error rates (default)
 # 2. pacbio = Pacific Biosciences (PacBio): Lower error rates
-sequencing_technology: ""
+# sequencing_technology: ""
+# workflow will currently not use this information
+
+# running mode: determines what analysis tools can be run
+# 1. laptop = runs on a laptop. Only does taxonomic profiling (default)
+# 2. cluster = runs on a cluster or workstation. Can perform all analysis_types (including assembly)
+running_mode: ""
+
 
 # confidence level of profiling analyses: 
 # 1. high = uses both assembled contigs and reads to yield a more accurate profile (default)
