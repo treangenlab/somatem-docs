@@ -6,32 +6,34 @@ _This is a work in progress document to plan the tools to be included in the pip
 | Category                     | Tool                                                                                                | Nextflow Implementation                                                                             |
 | ---------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | **Quality Control**          | [NanoPlot](https://github.com/wdecoster/NanoPlot)                                                   | [nf-core/nanoplot](https://github.com/nf-core/modules/tree/master/modules/nf-core/nanoplot)         |
-|                              | [hostile](https://github.com/bede/hostile)                                                          | [nf-core/hostile](https://github.com/nf-core/modules/tree/master/modules/nf-core/hostile)           |
-|                              | [chopper](https://github.com/wdecoster/chopper)                                                     | [nf-core/chopper](https://github.com/nf-core/modules/tree/master/modules/nf-core/chopper)           |
+|                              | [hostile](https://github.com/bede/hostile)                                                          | [nf-core/hostile](https://github.com/nf-core/modules/tree/master/modules/nf-core/hostile)          |
+|                              | [chopper](https://github.com/wdecoster/chopper)                                                     | [nf-core/chopper](https://github.com/nf-core/modules/tree/master/modules/nf-core/chopper)          |
 |                              | [filtlong](https://github.com/rrwick/Filtlong)                                                      | [nf-core/filtlong](https://github.com/nf-core/modules/tree/master/modules/nf-core/filtlong)         |
-| **Assembly**                 | [MetaCompass](https://github.com/marbl/MetaCompass)                                                 | same: [MetaCompass](https://github.com/marbl/MetaCompass)                                           |
-| *@Austin*                    | [AutoCycler](https://github.com/rrwick/AutoCycler)                                                  | -                                                                                                   |
-|                              | [Flye](https://github.com/fenderglass/Flye)                                                         | [nf-core/flye](https://github.com/nf-core/modules/tree/master/modules/nf-core/flye)                 |
-| **Binning**                  | ?                                                                                                   | -                                                                                                   |
-| **Pangenomics**              | [tMHG-Finder](https://github.com/yongze-yin/tMHG-Finder)                                            | -                                                                                                   |
-|                              | [parsnp](https://github.com/marbl/parsnp)<br>                                                       |                                                                                                     |
+| **Assembly**                 | [Flye](https://github.com/fenderglass/Flye)                                                 		 |  [nf-core/flye](https://github.com/nf-core/modules/tree/master/modules/nf-core/flye)             |
+| 		                       | [myloasm](https://github.com/bluenote-1577/myloasm)                                                  | -                                                                                                  |
+|                              | [MetaCompass](https://github.com/marbl/MetaCompass)                                                | -               																					 |
+| **Binning**                  | [SemiBin2](https://github.com/BigDataBiology/SemiBin)                                               | -                                                                                                   |
+| **Bin QC**				   | [CheckM2](https://github.com/chklovski/CheckM2)													 | -																								 |
+| **Pangenomics**              | [parsnp](https://github.com/marbl/parsnp)<br>                            			                 | -                                                                                                   |
+|                              | [tMHG-Finder](https://github.com/yongze-yin/tMHG-Finder)                                            | -                                                                                                    |
 | **SNP/SV Detection**         | [rhea](https://github.com/treangenlab/rhea) (SV, timecourse)                                        | -                                                                                                   |
 | **Taxonomic Profiling**      | [Emu](https://github.com/treangenlab/emu)                                                           | [gms-16s](https://github.com/genomic-medicine-sweden/gms_16S)                                       |
 |                              | [Lemur](https://github.com/treangenlab/lemur) + [MAGnet](https://github.com/treangenlab/magnet)<br> | -                                                                                                   |
 |                              | [Sylph](https://github.com/bluenote-1577/sylph)                                                     | -                                                                                                   |
-|                              | [Centrifuge](https://github.com/DaehwanKimLab/centrifuge)                                           | [nf-core/centrifuge](https://github.com/nf-core/modules/tree/master/modules/nf-core/centrifuge)     |
-|                              | [Centrifuger](https://github.com/mourisl/centrifuger)                                               | -                                                                                                   |
-| **Functional Annotation**    | [SeqScreen](https://gitlab.com/treangenlab/seqscreen)                                               | [DSL1 to 2](https://gitlab.com/treangenlab/seqscreen/-/tree/to-dsl2?ref_type=heads)                 |
-|                              | [EggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper)                                          | [nf-core/eggnogmapper](https://github.com/nf-core/modules/tree/master/modules/nf-core/eggnogmapper) |
-|                              | [HUMAnN](https://github.com/biobakery/humann)?                                                      | -                                                                                                   |
+|							   | [MetaPhlAn](https://github.com/biobakery/MetaPhlAn)												 | -																								 |
+|                              | [Centrifuger](https://github.com/mourisl/centrifuger)                                               | -      																							 |                                                            
+|							   | [SingleM pipe](https://github.com/wwood/singlem)													 | -																								 |
+| **Functional Annotation**    | [SeqScreen](https://gitlab.com/treangenlab/seqscreen)                                               | [DSL1 to 2](https://gitlab.com/treangenlab/seqscreen/-/tree/to-dsl2?ref_type=heads)             |
+|                              | [HUMAnN](https://github.com/biobakery/humann)                                                       | -                                                                                                   |
+|							   | [bakta](https://github.com/oschwengers/bakta)														 | - 																								 |
 | **Metabolic Reconstruction** | [Bakdrive](https://gitlab.com/treangenlab/bakdrive)                                                 | -                                                                                                   |
 |                              | [micom](https://github.com/micom-dev/micom)                                                         | -                                                                                                   |
-|                              | [Apollo](https://genomearchitect.readthedocs.io/)                                                   | -                                                                                                   |
-| **Reporting, visualization** | [FastQC](https://github.com/s-andrews/FastQC)                                                       | [nf-core/fastqc](https://github.com/nf-core/modules/tree/master/modules/nf-core/fastqc)             |
-|                              | [MetagenomeScope](https://github.com/marbl/MetagenomeScope)                                         | -                                                                                                   |
-
-Total number of unique tools: 24
-Number with nextflow implmentations: 12/24
+| **Community Assessment**	   | [SingleM appraise](https://github.com/wwood/singlem)												 | -																								 |
+| **Reporting, Visualization** | [taxburst](https://github.com/taxburst/taxburst)                                                    | -																								 |
+|                              | [MetagenomeScope](https://github.com/marbl/MetagenomeScope)                                         | -                                                                                                   
+Total number of unique tools: 26
+Number with nextflow implmentations: 7ish/24
+Soon to be _many_ more...
 
 ---
 
@@ -63,7 +65,6 @@ Original plan from flowchart sketched on whiteboard on 2025-05-13: Inputs from T
 ## Tools list
 
 ### Quality control / preprocessing
-_@Austin working on this_
 
 - [NanoPlot](https://github.com/wdecoster/NanoPlot): QC plotting suite for long-read sequencing data and alignments. _for QC on the raw files / final reads after filtering_. [nf-core/module](https://github.com/nf-core/modules/tree/master/modules/nf-core/nanoplot) | [citation](https://academic.oup.com/bioinformatics/article/39/5/btad311/7160911?login=true)
 - [hostile](https://github.com/bede/hostile): A tool for filtering reads that align to a host genome (_removes host contamination from microbial metagenomes_). nf-core/modules: [hostile-clean](https://nf-co.re/modules/hostile_clean/); [hostile-fetch](https://nf-co.re/modules/hostile_fetch/), [code](https://github.com/nf-core/modules/tree/master/modules/nf-core/hostile) | [citation](https://doi.org/10.1093/bioinformatics/btad728)
@@ -72,25 +73,21 @@ _@Austin working on this_
 
 
 ### Assembly
-_@Austin working on this_
-
-**Reference guided**
-- [meta-compass](https://github.com/marbl/MetaCompass): A metagenomic reference-guided assembler that leverages multiple reference genomes
 
 **De novo assembly**: _Note: uses a lot of RAM: 32 GB minimum_
 
-- [Autocycler](https://github.com/rrwick/AutoCycler): Consensus long-read assembly pipeline combining multiple alternative assemblies of the same genome (using De Bruijn graph assembly) | [citation](https://www.biorxiv.org/content/10.1101/2025.05.12.653612v1.full)
 - [Flye](https://github.com/fenderglass/Flye): De novo assembler for single-molecule sequencing reads using repeat graphs (PacBio and Oxford Nanopore). [nf-core/module](https://nf-co.re/modules/flye/), [code](https://github.com/nf-core/modules/tree/master/modules/nf-core/flye) | [citation](https://doi.org/10.1038/s41592-020-00971-x)
-- [Canu](https://github.com/marbl/canu): Hierarchical assembler designed for high-noise single-molecule sequencing; _End of life since 2021; don't use_. [nf-core/module](https://nf-co.re/modules/canu/), [code](https://github.com/nf-core/modules/tree/master/modules/nf-core/canu) | [citation](https://doi.org/10.1101/gr.215087.116)
+- [myloasm](https://github.com/bluenote-1577/myloasm) Myloasm is a de novo metagenome assembler, it takes long reads and outputs polished contigs in a single command. (not published yet but probably will be by the time Somatem manuscript is out, very complete github & docs already made, also Jim Shaw & Hang Li collab).
 
+**Reference guided**
+We aim to implement a reference-guided assembler in the future, however, meta-compass is currently short-read only...
+- [meta-compass](https://github.com/marbl/MetaCompass): A metagenomic reference-guided assembler that leverages multiple reference genomes
 
 ### Binning
+Currently we only use one binner but we have aspirations to include mutliple binners + refinement tools down the read.
+- [SemiBin2](https://github.com/BigDataBiology/SemiBin) SemiBin2 uses self-supervised learning to learn feature embeddings from the contigs with emphasis on long-read sequencing data. [citation](https://doi.org/10.1093/bioinformatics/btad209)
 
 
-**Contig based**
-
-
-**Assembly graph based**
 
 ## Pangenomic analyses
 - [parsnp](https://github.com/marbl/parsnp): A fast microbial core-genome alignment tool, which can output core genome phylogeny, multiple genome alignments and SNP calls. [citation](https://academic.oup.com/bioinformatics/article/40/5/btae311/7667868)  
@@ -107,15 +104,15 @@ Includes gene duplication loss
 - [Lemur](https://github.com/treangenlab/lemur): For rapid and accurate taxonomic profiling on long-read metagenomic datasets. [citation](https://www.biorxiv.org/content/10.1101/2024.06.01.596961v2.full)
 	- [MAGnet](https://github.com/treangenlab/magnet): Refines taxonomic profiles for accuracy using reference genome mapping from all the reads. _same citation as Lemur_: [citation](https://www.biorxiv.org/content/10.1101/2024.06.01.596961v2.full)
 - [Sylph](https://github.com/bluenote-1577/sylph): A tool for rapid and accurate species level taxonomic profiling of metagenomic data using k-mer sketches. [citation](https://www.nature.com/articles/s41587-024-02412-y): _Shaw et al., Nature Biotechnology, 2024_ | [documentation](https://sylph-docs.github.io/)
-- [Centrifuge](https://github.com/DaehwanKimLab/centrifuge): A rapid and memory-efficient classification system for metagenomic sequences. [nf-core/module](https://nf-co.re/modules/centrifuge_centrifuge/), [code](https://github.com/nf-core/modules/tree/master/modules/nf-core/centrifuge) | [citation](https://doi.org/10.1101/gr.210641.116)
-	- [Centrifuger](https://github.com/mourisl/centrifuger) might be better for large databases due to compression? | [citation](https://link.springer.com/article/10.1186/s13059-024-03244-4)
+- [MetaPhlAn](https://github.com/biobakery/MetaPhlAn) Including because recent support for long reads and will make a lightweight functional annotation analysis when combined with HUMAnN.
+- [Centrifuger](https://github.com/mourisl/centrifuger) might be better for large databases due to compression? | [citation](https://link.springer.com/article/10.1186/s13059-024-03244-4)
 
 ### Functional annotation
 - [SeqScreen](https://gitlab.com/treangenlab/seqscreen): Functional screening of pathogenic sequences in metagenomic data.
 [nextflow: DSL1 to 2 transition](https://gitlab.com/treangenlab/seqscreen/-/tree/to-dsl2?ref_type=heads) | [citation](https://link.springer.com/article/10.1186/s13059-022-02695-x): _Balaji et al., Genome Biology, 2022_
 	- _includes **antibiotic resistance genes**_. 
-- [EggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper): Fast functional annotation of novel sequences using orthology assignments [nf-core/module](https://nf-co.re/modules/eggnogmapper/), [code](https://github.com/nf-core/modules/tree/master/modules/nf-core/eggnogmapper) | [citation](https://doi.org/10.1093/molbev/msab293)
 - [HUMAnN](https://github.com/biobakery/humann): HMP Unified Metabolic Analysis Network - profiling microbial community metabolic potential (? / Not for long reads? (*says Austin*) - *eukaryotic; RAM intensive*; )
+- [bakta](https://github.com/oschwengers/bakta)
 
 ### Read Classification
 _How is this different from taxonomic classification?_
@@ -130,20 +127,25 @@ _How is this different from taxonomic classification?_
 ### Metabolic reconstruction
 - [Bakdrive](https://gitlab.com/treangenlab/bakdrive) / [recent/private version](https://github.com/treangenlab/bakdrive): _Can take in Emu output_. [citation](https://academic.oup.com/bioinformatics/article/39/Supplement_1/i47/7210449): _Wang et al., Bioinformatics, 2023_
   - [micom](https://github.com/micom-dev/micom): _Best to use with bakdrive_. [citation](https://journals.asm.org/doi/10.1128/msystems.00606-19): _Diener et al., mSystems, 2020_
-- [Apollo](https://genomearchitect.readthedocs.io/en/latest/): interactive sequence annotation editor; [citation](https://link.springer.com/article/10.1186/gb-2002-3-12-research0082). _Is this even relevant for a nextflow workflow?_
 
 ### Final: Validation / QC
+- [CheckM2](https://github.com/chklovski/CheckM2)
+- [SingleM appraise](https://github.com/wwood/singlem)
 _Check how MetAMOS implements this says Todd_
 - Check if tools ran correctly
 
 
 ### Report
-- [FastQC](https://github.com/s-andrews/FastQC): A quality control tool for high throughput sequence data - Can have it enhanced with LLM (_like seqera AI report does it_). [nf-core/module](https://nf-co.re/modules/fastqc/), [code](https://github.com/nf-core/modules/tree/master/modules/nf-core/fastqc) | [documentation](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- nextflow execution report (html)
+- [MultiQC](https://github.com/MultiQC/MultiQC)
+- [SingleM appraise](https://github.com/wwood/singlem)
 _Check how MetAMOS report was made from scratch says Todd_ 
 
 
 ### Visualization tools
-- [MetagenomeScope](https://github.com/marbl/MetagenomeScope): Web based visualization tool for metagenomic assembly graphs. 
+- [taxburst](https://github.com/taxburst/taxburst)
+- [MetagenomeScope](https://github.com/marbl/MetagenomeScope): Web based visualization tool for metagenomic assembly graphs.
+- [emperor](https://biocore.github.io/emperor/build/html/index.html) Interactive ordination plot viz
 
 ### Databases
 - bacterial: [RefSeq](https://www.ncbi.nlm.nih.gov/refseq/)
@@ -154,7 +156,8 @@ _Check how MetAMOS report was made from scratch says Todd_
 - [aviary](https://github.com/rhysnewell/aviary) is a snakemake workflow that Austin espouses, but Todd doesn't like that it's not published.
 > (_Austin_) This is the pipeline used for our previous depletion paper and also put together by Ben woodcraft’s group, has singlem and all the rest of their m tools 
 - [cloudres](https://github.com/maxlcummins/cloudres): MLST assignment and AMR detection. _could learn/borrow code_
-
+- [mmlong2](https://github.com/Serka-M/mmlong2) Genome-centric long-read metagenomics workflow for automated recovery and analysis of prokaryotic genomes with Nanopore or PacBio HiFi sequencing data.
+- [MUFFIN](https://github.com/RVanDamme/MUFFIN) MUFFIN is a hybrid assembly and differential binning workflow for metagenomics, transcriptomics and pathway analysis.
 - [mapo tofu](https://github.com/ikmb/TOFU-MAaPO) is a nextflow pipeline for short reads. 
   - Can borrow their [Sylph module](https://github.com/ikmb/TOFU-MAaPO/blob/master/modules/sylph.nf)?
 - [BugBuster](https://github.com/gene2dis/BugBuster)
