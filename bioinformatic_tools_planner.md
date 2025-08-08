@@ -8,32 +8,37 @@ _This is a work in progress document to plan the tools to be included in the pip
 | **Quality Control**          | [NanoPlot](https://github.com/wdecoster/NanoPlot)                                                   | [nf-core/nanoplot](https://github.com/nf-core/modules/tree/master/modules/nf-core/nanoplot)         |
 |                              | [hostile](https://github.com/bede/hostile)                                                          | [nf-core/hostile](https://github.com/nf-core/modules/tree/master/modules/nf-core/hostile)          |
 |                              | [chopper](https://github.com/wdecoster/chopper)                                                     | [nf-core/chopper](https://github.com/nf-core/modules/tree/master/modules/nf-core/chopper)          |
-|                              | [filtlong](https://github.com/rrwick/Filtlong)                                                      | [nf-core/filtlong](https://github.com/nf-core/modules/tree/master/modules/nf-core/filtlong)         |
 | **Assembly**                 | [Flye](https://github.com/fenderglass/Flye)                                                 		 |  [nf-core/flye](https://github.com/nf-core/modules/tree/master/modules/nf-core/flye)             |
 | 		                       | [myloasm](https://github.com/bluenote-1577/myloasm)                                                  | -                                                                                                  |
 |                              | [MetaCompass](https://github.com/marbl/MetaCompass)                                                | -               																					 |
 | **Binning**                  | [SemiBin2](https://github.com/BigDataBiology/SemiBin)                                               | -                                                                                                   |
 | **Bin QC**				   | [CheckM2](https://github.com/chklovski/CheckM2)													 | -																								 |
-| **Pangenomics**              | [parsnp](https://github.com/marbl/parsnp)<br>                            			                 | -                                                                                                   |
-|                              | [tMHG-Finder](https://github.com/yongze-yin/tMHG-Finder)                                            | -                                                                                                    |
 | **SNP/SV Detection**         | [rhea](https://github.com/treangenlab/rhea) (SV, timecourse)                                        | -                                                                                                   |
 | **Taxonomic Profiling**      | [Emu](https://github.com/treangenlab/emu)                                                           | [gms-16s](https://github.com/genomic-medicine-sweden/gms_16S)                                       |
 |                              | [Lemur](https://github.com/treangenlab/lemur) + [MAGnet](https://github.com/treangenlab/magnet)<br> | -                                                                                                   |
 |                              | [Sylph](https://github.com/bluenote-1577/sylph)                                                     | -                                                                                                   |
-|							   | [MetaPhlAn](https://github.com/biobakery/MetaPhlAn)												 | -																								 |
-|                              | [Centrifuger](https://github.com/mourisl/centrifuger)                                               | -      																							 |                                                            
 |							   | [SingleM pipe](https://github.com/wwood/singlem)													 | -																								 |
 | **Functional Annotation**    | [SeqScreen](https://gitlab.com/treangenlab/seqscreen)                                               | [DSL1 to 2](https://gitlab.com/treangenlab/seqscreen/-/tree/to-dsl2?ref_type=heads)             |
-|                              | [HUMAnN](https://github.com/biobakery/humann)                                                       | -                                                                                                   |
 |							   | [bakta](https://github.com/oschwengers/bakta)														 | - 																								 |
-| **Metabolic Reconstruction** | [Bakdrive](https://gitlab.com/treangenlab/bakdrive)                                                 | -                                                                                                   |
-|                              | [micom](https://github.com/micom-dev/micom)                                                         | -                                                                                                   |
 | **Community Assessment**	   | [SingleM appraise](https://github.com/wwood/singlem)												 | -																								 |
 | **Reporting, Visualization** | [taxburst](https://github.com/taxburst/taxburst)                                                    | -																								 |
 |                              | [MetagenomeScope](https://github.com/marbl/MetagenomeScope)                                         | -                                                                                                   
-Total number of unique tools: 26
+Total number of unique tools: 18
 Number with nextflow implmentations: 7ish/24
 Soon to be _many_ more...
+
+### Archived tools
+_These will be implemented in the future ; moving them here to preserve the links etc_
+
+| Category                     | Tool                                                                                                | Nextflow Implementation                                                                             |
+| ---------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+|  **Quality Control**         | [filtlong](https://github.com/rrwick/Filtlong)                                                      | [nf-core/filtlong](https://github.com/nf-core/modules/tree/master/modules/nf-core/filtlong)         |
+| **Pangenomics**              | [parsnp](https://github.com/marbl/parsnp)<br>                            			                 | -                                                                                                   |
+|                              | [tMHG-Finder](https://github.com/yongze-yin/tMHG-Finder)                                            | -                                                                                                    |
+| **Taxonomic Profiling**      | [MetaPhlAn](https://github.com/biobakery/MetaPhlAn)												 | -																								 |
+| **Metabolic Reconstruction** | [Bakdrive](https://gitlab.com/treangenlab/bakdrive)                                                 | -                                                                                                   |
+|                              | [micom](https://github.com/micom-dev/micom)                                                         | -                                                                                                   |
+
 
 ---
 
