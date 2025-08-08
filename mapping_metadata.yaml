@@ -24,7 +24,7 @@ data_type:
         tools: Emu
         notes:
           - "Taxonomic profiling can yield genus or higher level taxonomic mapping of each read (rarely species level) and relative abundance."
-          - "Notes: PCR amplification used in 16S sequencing distorts read ratios from true microbial community composition (PCR bias)."
+          - "Caveat: PCR amplification used in 16S sequencing distorts read ratios from true microbial community composition (PCR bias)."
 
   - name: isolate
     definition: |
@@ -35,7 +35,9 @@ data_type:
       - name: assembly
         description: "Can assemble a complete genome using the reads"
       - name: taxonomic-profiling
-        description: "Can verify the species/strain of the isolate"
+        description: | 
+          Profiling doesn't make sense when you a single isolate. But you can verify 
+          the species/strain of the isolate you sequenced. Just be aware of false positives."
       
 
   - name: metagenomic

@@ -39,7 +39,3 @@ running_mode: ""
 # 1. high = uses both assembled contigs and reads to yield a more accurate profile (default)
 # 2. regular = uses only reads to yield a profile, and is faster (default)
 confidence_level: ""
-
-
-# NOTES: add to mapping_metadata.yaml document?
-# throw warning: isolate data_type: taxonomic profiling might not make sense / throw false positive; but if you want to verify the species you can go ahead with caution
