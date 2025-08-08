@@ -41,3 +41,5 @@ running_mode: ""
 confidence_level: ""
 
 
+# NOTES: add to mapping_metadata.yaml document?
+# throw warning: isolate data_type: taxonomic profiling might not make sense / throw false positive; but if you want to verify the species you can go ahead with caution
