@@ -26,7 +26,12 @@ sample_status: ""
 # sequencing technology used to generate the reads
 # 1. nanopore = Oxford Nanopore (ONT): Higher error rates (default)
 # 2. pacbio = Pacific Biosciences (PacBio): Lower error rates
-# sequencing_technology: ""
+sequencing_technology: ""
+
+# sequencing technology qualifiers
+# for nanopore: R10, R9, older
+# for pacbio: CLR, HiFi
+sequencing_technology_qualifiers: ""
 # workflow will currently not use this information
 
 # running mode: determines what analysis tools can be run

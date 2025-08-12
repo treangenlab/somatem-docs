@@ -117,14 +117,52 @@ sample_status:
           capable of identifying structural variants (SVs) and single nucleotide
           variants (SNVs) across samples.
 
-# # sequencing technology used to generate the reads
-# sequencing_technology: 
-#   - nanopore: 
-#       - "Oxford Nanopore (ONT): Higher error rates (default)"
-#       - "Currently this doesn't influence the pipeline. @Austin: thoughts?"
-#   - pacbio: 
-#       - "Pacific Biosciences (PacBio): Lower error rates"
-#       - "Currently this doesn't influence the pipeline. @Austin: thoughts?"
+# sequencing technology used to generate the reads
+sequencing_technology: 
+  - name: nanopore
+    definition: Oxford Nanopore Technologies (ONT) sequencing platforms.
+    description: |
+      For R10 data, use --nano-hq. Expected error rate is <3%.
+      
+      For R9 data basecalled with Guppy5+, use --nano-hq --read-error 0.05. 
+      The expected error rate is <5%.
+      
+      For older ONT data (e.g., R7-older R9 chemistry) use --nano-raw. 
+      The expected error rate is 10-15%.
+      
+      For error-corrected ONT reads (with methods such as Canu), use --nano-corr.
+      
+    sequencing_technology_qualifiers: 
+      - R10: 
+        - "Expected error rate is <3%"
+        - "Will use --nano-hq for flye assembly"
+      - R9: 
+        - "Expected error rate is <5%"
+        - "Will use --nano-hq --read-error 0.05 for flye assembly"
+      - older: 
+        - "Expected error rate is 10-15%"
+        - "Will use --nano-raw for flye assembly"
+      
+  - name: pacbio
+    definition: Pacific Biosciences (PacBio) sequencing platforms.
+    description: |
+      For regular PacBio CLR data, use --pacbio-raw. Works for a wide range of 
+      datasets (P5C3/P6C4/Sequel) with error rate 13-15%.
+      
+      Note: In CLR mode, Flye assumes that the input files represent PacBio 
+      subreads (adaptors and scraps removed, multiple passes separated). 
+      
+      For PacBio HiFi data, use --pacbio-hifi mode. The default error-rate is 0.001 
+      (in HPC space), and works well for default CCS algorithm settings 
+      (e.g., 3+ polymerase passes). Error can be adjusted via --read-error.
+      
+    sequencing_technology_qualifiers: 
+      - CLR: 
+        - "Expected error rate is 13-15%"
+        - "Will use --pacbio-raw for flye assembly"
+      - HiFi: 
+        - "Expected error rate is 0.001%"
+        - "Will use --pacbio-hifi for flye assembly"
 
 # Running Mode
 # ------------

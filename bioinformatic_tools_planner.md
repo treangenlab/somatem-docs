@@ -60,7 +60,7 @@ Original plan from flowchart sketched on whiteboard on 2025-05-13: Inputs from T
   - assembly based metagenomics
 - 1 vs n samples
   - Rheaa is good for n samples so it will dictate the rest of the pipeline 
-- Type of data technology: 
+- Type of data technology: (ideas for more detailed options [flye docs](github.com/mikolmogorov/Flye/blob/flye/docs/USAGE.md#-supported-input-data))
   - Nanopore (ONT)
   - Pacbio (Pacbio)
   - Synthetic long reads (Illumina)
