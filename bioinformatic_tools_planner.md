@@ -180,6 +180,25 @@ List
 	- will explore making a sub-module that's shared in both repos in the future if > 2 changes are being made by Sahil..
 	- (*Not possible to use git supported soft links to share with another computer*) But need some simlink mechanism to keep the files linked // need some way to sync their commit history as well - *currently will need to do this manually?*
 
+## backups
+- Tool links: archived
+meta-compass,Assembly,A metagenomic reference-guided assembler that leverages multiple reference genomes,https://github.com/marbl/MetaCompass,,,
+filtlong,Quality control / preprocessing,Quality filtering tool for long-reads by read quality and length,https://github.com/rrwick/Filtlong,,https://github.com/nf-core/modules/tree/master/modules/nf-core/filtlong,No citation available
+AutoCycler,Assembly,Consensus long-read assembly pipeline combining multiple alternative assemblies,https://github.com/rrwick/AutoCycler,https://www.biorxiv.org/content/10.1101/2025.05.12.653612v1.full,,
+Canu,Assembly,Hierarchical assembler designed for high-noise single-molecule sequencing,https://github.com/marbl/canu,https://doi.org/10.1101/gr.215087.116,https://github.com/nf-core/modules/tree/master/modules/nf-core/canu,End of life since 2021; don't use
+parsnp,Pangenomic analyses,A fast microbial core-genome alignment tool,https://github.com/marbl/parsnp,https://academic.oup.com/bioinformatics/article/40/5/btae311/7667868,,
+tMHG-Finder,Pangenomic analyses,Tree guided maximal homologous group (MHG) identification,https://github.com/yongze-yin/tMHG-Finder,https://www.biorxiv.org/content/10.1101/2025.03.16.643543v1.full,,
+Centrifuge,Taxonomic classification,A rapid and memory-efficient classification system for metagenomic sequences,https://github.com/DaehwanKimLab/centrifuge,https://doi.org/10.1101/gr.210641.116,https://github.com/nf-core/modules/tree/master/modules/nf-core/centrifuge,
+Centrifuger,Taxonomic classification,Improved version of Centrifuge for large databases,https://github.com/mourisl/centrifuger,https://link.springer.com/article/10.1186/s13059-024-03244-4,,
+EggNOG-mapper,Functional annotation,Fast functional annotation of novel sequences using orthology assignments,https://github.com/eggnogdb/eggnog-mapper,https://doi.org/10.1093/molbev/msab293,https://github.com/nf-core/modules/tree/master/modules/nf-core/eggnogmapper,
+HUMAnN,Functional annotation,HMP Unified Metabolic Analysis Network - profiling microbial community metabolic potential,https://github.com/biobakery/humann,,,,Not for long reads; RAM intensive
+Bakdrive,Metabolic reconstruction,Metagenomic Analysis of Genomes in the ENvironmental Toolkit,https://gitlab.com/treangenlab/bakdrive,https://academic.oup.com/bioinformatics/article/39/Supplement_1/i47/7210449,,Can take in Emu output
+micom,Metabolic reconstruction,Microbiome modeling,https://github.com/micom-dev/micom,https://journals.asm.org/doi/10.1128/msystems.00606-19,,Best to use with bakdrive
+Apollo,Metabolic reconstruction,Interactive sequence annotation editor,https://genomearchitect.readthedocs.io/,https://link.springer.com/article/10.1186/gb-2002-3-12-research0082,,Relevance for nextflow workflow unclear
+FastQC,Report,A quality control tool for high throughput sequence data,https://github.com/s-andrews/FastQC,,https://github.com/nf-core/modules/tree/master/modules/nf-core/fastqc,Can be enhanced with LLM
+MetagenomeScope,Visualization,Web based visualization tool for metagenomic assembly graphs,https://github.com/marbl/MetagenomeScope,,,
+
+
 ## LLM Bioinformatics Training Pairs
 `llm_bioinformatics_training_pairs_with_output.csv`
 16/Jul/25 - flowchart -> questions
