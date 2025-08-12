@@ -10,7 +10,6 @@ _This is a work in progress document to plan the tools to be included in the pip
 |                              | [chopper](https://github.com/wdecoster/chopper)                                                     | [nf-core/chopper](https://github.com/nf-core/modules/tree/master/modules/nf-core/chopper)          |
 | **Assembly**                 | [Flye](https://github.com/fenderglass/Flye)                                                 		 |  [nf-core/flye](https://github.com/nf-core/modules/tree/master/modules/nf-core/flye)             |
 | 		                       | [myloasm](https://github.com/bluenote-1577/myloasm)                                                  | -                                                                                                  |
-|                              | [MetaCompass](https://github.com/marbl/MetaCompass)                                                | -               																					 |
 | **Binning**                  | [SemiBin2](https://github.com/BigDataBiology/SemiBin)                                               | -                                                                                                   |
 | **Bin QC**				   | [CheckM2](https://github.com/chklovski/CheckM2)													 | -																								 |
 | **SNP/SV Detection**         | [rhea](https://github.com/treangenlab/rhea) (SV, timecourse)                                        | -                                                                                                   |
@@ -23,8 +22,8 @@ _This is a work in progress document to plan the tools to be included in the pip
 | **Community Assessment**	   | [SingleM appraise](https://github.com/wwood/singlem)												 | -																								 |
 | **Reporting, Visualization** | [taxburst](https://github.com/taxburst/taxburst)                                                    | -																								 |
 |                              | [MetagenomeScope](https://github.com/marbl/MetagenomeScope)                                         | -                                                                                                   
-Total number of unique tools: 18
-Number with nextflow implmentations: 7ish/24
+Total number of unique tools: 17
+Number with nextflow implmentations: 7ish/17?
 Soon to be _many_ more...
 
 ### Archived tools
@@ -33,6 +32,7 @@ _These will be implemented in the future ; moving them here to preserve the link
 | Category                     | Tool                                                                                                | Nextflow Implementation                                                                             |
 | ---------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 |  **Quality Control**         | [filtlong](https://github.com/rrwick/Filtlong)                                                      | [nf-core/filtlong](https://github.com/nf-core/modules/tree/master/modules/nf-core/filtlong)         |
+| **Assembly**                 | [MetaCompass](https://github.com/marbl/MetaCompass)                                                | -               																					 |
 | **Pangenomics**              | [parsnp](https://github.com/marbl/parsnp)<br>                            			                 | -                                                                                                   |
 |                              | [tMHG-Finder](https://github.com/yongze-yin/tMHG-Finder)                                            | -                                                                                                    |
 | **Taxonomic Profiling**      | [MetaPhlAn](https://github.com/biobakery/MetaPhlAn)												 | -																								 |
