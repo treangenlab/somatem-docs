@@ -12,7 +12,7 @@ flowchart TD
  subgraph Preprocess
      direction LR
      initqc["Initial: read quality check<br>(NanoPlot)"]
-     trimming["Quality/adapter trimming<br>(chopper | fitlong)"]  
+     trimming["Quality/adapter trimming<br>(chopper)"]  
      dehost["Remove host contamination<br>(hostile)"]
      finalqc["final QC<br>(NanoPlot)"]
      
@@ -22,9 +22,10 @@ flowchart TD
 
  
  assembly(["Assembly"])
- denovo["De novo<br>(MetaFlye)"]
- refguided["Reference-guided<br>(MetaCompass)"]
- binning["Binning<br>(VAMB | Semibin2 | metabat2)"]
+ denovo["De novo<br>(metaFlye)"]
+%%  refguided["Reference-guided<br>(MetaCompass)"]
+ binning["Binning<br>(Minimap2 + Semibin2)"]
+ genomeqc["Genome completeness, QC <br>(CheckM2)"]
  annotation["Genome annotation<br>(Bakta)"]
 
  genesnp["Structural variation<br> Gene duplication/loss<br>(rhea)"]
@@ -35,16 +36,17 @@ flowchart TD
   %% metabolic["Metabolic reconstruction<br>(bakdrive + micom | apollo)"]
   %% othergenomic --> pangenomics & genesnp & metabolic
   
- assembly --> denovo & refguided
- denovo & refguided --> contigs>"contigs"]
+ assembly --> denovo
+ denovo --> contigs>"contigs"]
  denovo --> binning
- binning & refguided --> annotation
+ binning --> genomeqc
+ genomeqc --> annotation
  annotation --> genome>"(meta)genomes,<br>circos plots"]
 
  pathogen["Pathogen identification<br>(SeqScreen)"]
 
  subgraph Laptop_Mode["Laptop mode<br>(read based)"]
-  taxonomic["Taxonomic profiling<br>(Lemur + MAGnet ; Emu (16S) | Centrifuge | Sylph)"]
+  taxonomic["Taxonomic profiling<br>(Lemur + MAGnet ; Emu (16S))"]
  end
 
  reads --"taxonomic profiling"--> taxonomic  
@@ -69,9 +71,13 @@ flowchart TD
 %% Preprocessing: 
 %%   add length to trimming node (length filtering)
 %%   add depth sampling node
+%% Taxonomic profiling: 
+%%   MAGnet, Sylph: removed for now ; will add back when implemented + choice is clear
 %% Functional annotation:
 %%   SeqScreen et. al. don't work on laptop. Move to workstation mode?
 %%   Rethink functional annotation name to "ARG" and add `AMR++ with the megares 3 db` to it?
+%% Assembly: 
+%%   Refguided: node removed ; metaCompass not compatible with long-reads
 %% Metabolic reconstruction:
 %%   Bakdrive can take in emu output (Austin). Check and include in the flowchart. 
 %% Database: 
