@@ -1,0 +1,44 @@
+{
+    "Pipeline 1": {
+        "datatype": "16S",
+        "analysis_type": "taxonomic-profiling",
+        "sequencing_technology": "NanoPore or Pacbio",
+        "workflow": "NanoPore or Pacbio -> NanoPlot -> chopper -> hostile -> NanoPlot -> Emu"
+    },
+    "Pipeline 2": {
+        "datatype": "Isolate",
+        "analysis_type": "assembly",
+        "sequencing_technology": "NanoPore or Pacbio",
+        "workflow": "NanoPore or Pacbio -> NanoPlot -> chopper -> hostile -> NanoPlot -> MetaFlye -> Minimap2 + Semibin2 -> CheckM2 -> Bakta"
+    },
+    "Pipeline 3": {
+        "datatype": "Isolate",
+        "analysis_type": "taxonomic-profiling",
+        "sequencing_technology": "NanoPore or Pacbio",
+        "workflow": "NanoPore or Pacbio -> NanoPlot -> chopper -> hostile -> NanoPlot -> Lemur + Magnet"
+    },
+    "Pipeline 4": {
+        "datatype": "Metagenomics",
+        "analysis_type": "genome-dynamics",
+        "sequencing_technology": "NanoPore or Pacbio",
+        "workflow": "NanoPore or Pacbio -> NanoPlot -> chopper -> hostile -> NanoPlot -> Rhea"
+    },
+    "Pipeline 5": {
+        "datatype": "Metagenomics",
+        "analysis_type": "assembly",
+        "sequencing_technology": "NanoPore or Pacbio",
+        "workflow": "NanoPore or Pacbio -> NanoPlot -> chopper -> hostile -> NanoPlot -> MetaFlye -> Minimap2 + Semibin2 -> CheckM2 -> Bakta"
+    },
+    "Pipeline 6": {
+        "datatype": "Metagenomics",
+        "analysis_type": "taxonomic-profiling",
+        "sequencing_technology": "NanoPore or Pacbio",
+        "workflow": "NanoPore or Pacbio -> NanoPlot -> chopper -> hostile -> NanoPlot -> Lemur + Magnet"
+    },
+    "Pipeline 7": {
+        "datatype": "Metagenomics",
+        "analysis_type": "pathogen",
+        "sequencing_technology": "NanoPore or Pacbio",
+        "workflow": "NanoPore or Pacbio -> NanoPlot -> chopper -> hostile -> NanoPlot -> Rhea"
+    }
+}
