@@ -3,16 +3,16 @@ taxonomic-profiling (metagenomic),What organisms are present in my metagenomic s
 taxonomic-profiling (metagenomic),Which microbial groups dominate my sample?,Lemur + Magnet,Top taxa by abundance
 taxonomic-profiling (metagenomic),How does the microbial community differ between these two conditions?,Lemur + Magnet,"Beta-diversity, differential abundance analysis"
 taxonomic-profiling (16S),Which bacteria are present in my 16S sample?,Emu,Taxonomic classification to genus/species depending on region sequenced
-taxonomic-profiling (16S),How diverse is the microbial community in my sample?,Emu,"Alpha diversity metrics like Shannon, Simpson. Use follow up analysis after Emu to get these metrics"
-taxonomic-profiling (16S),Are there significant differences in microbial composition between my groups?,Emu,"Beta diversity and statistical tests like PERMANOVA, LEfSe. Use follow up analysis after Emu to get these metrics"
+taxonomic-profiling (16S),How diverse is the microbial community in my amplicon sequencing sample?,Emu,"Alpha diversity metrics like Shannon, Simpson. Use follow up analysis after Emu to get these metrics"
+taxonomic-profiling (16S),Are there significant differences in microbial composition between my samples? I have 16S data,Emu,"Beta diversity and statistical tests like PERMANOVA, LEfSe. Use follow up analysis after Emu to get these metrics"
 pathogen (read classification),Do any of my reads match genes associated with pathogenicity or toxins?,SeqScreen,Functional biosafety screening
 pathogen (read classification),Can you flag any sequences in this sample that could pose a synthetic biology risk?,SeqScreen,Detection of Dual-Use Research of Concern (DURC) signatures
 pathogen (read classification),"What functions can be inferred directly from the reads, even if I don’t assemble them?",SeqScreen,Read-level function prediction using curated databases
-assembly,"What genes are present in this genome, and what do they do?",Bakta,"Functional annotation of coding sequences, gene product names, EC numbers, etc."
+assembly,"What genes and functions are present in this genome?",Bakta,"Functional annotation of coding sequences, gene product names, EC numbers, etc."
 assembly,"Can you assemble my sequencing reads into a genome?",Flye,"Assembly of sequencing reads into a genome"
 assembly,Can you tell me if this genome has any antibiotic resistance or virulence genes?,Bakta,"Annotation with resistance/virulence gene databases"
 assembly,What pathways or metabolic functions can this organism perform?,Bakta,"KEGG/GO terms, pathway annotations, transporter genes"
 assembly,What biosynthetic gene clusters can this organism perform?,Bakta,"KEGG/GO terms, pathway annotations, transporter genes"
-genome-dynamics,How has the frequency of a specific mutation changed over time?,rhea,"Variant evolution over time"
+genome-dynamics,Can you identify structural variants from multiple samples of the same microbial community?,rhea,"Variant evolution over time"
 genome-dynamics,What mutations are getting more frequent / fixed in the population over time?,rhea,"Genetic variation at the region level"
-genome-dynamics,What are the most frequently occurring mutations in my sample?,rhea,"Genetic variation at the nucleotide level"
+genome-dynamics,Can you identify horizontal gene transfer events from my time series data?,rhea,"Genetic variation at the nucleotide level"
