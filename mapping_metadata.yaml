@@ -59,6 +59,7 @@ analysis_type:
       Taxonomic profiling is the process of identifying the taxonomic identity
       (genus, species, strain) of each read in a metagenomic sample (16S, shotgun)
       and computing the relative abundance of each taxon in the sample.
+    more_info: [Taxonomic profiling](./analysis_types/taxonomic-profiling.md)
 
   - name: assembly
     definition: |
@@ -68,8 +69,9 @@ analysis_type:
       Assembly is the process of reconstructing the genome of a microbial isolate
       or metagenome assembled genomes (MAGs) from genomic DNA sequence reads. Output includes
       annotated genome/contigs (.fasta format) and visualization (e.g., circos plots).
+    more_info: [Assembly](./analysis_types/assembly.md)
 
-  - name: pathogen
+  - name: pathogen-detection
     definition: |
       Detect and characterize potential pathogens in the sample using functional
       profiling of known virulence factors.
@@ -77,6 +79,7 @@ analysis_type:
       Pathogen detection identifies the presence of pathogens in a metagenomic
       sample (16S, shotgun) by analyzing virulence genes and functional sequences
       associated with known pathogens.
+    more_info: [Pathogen detection](./analysis_types/pathogen-detection.md)
 
   - name: genome-dynamics
     definition: |
@@ -88,6 +91,7 @@ analysis_type:
     notes: |
       Specialized tool for genomic variation analysis from time-series samples.
       Can identify both structural variants (SVs) and single nucleotide variants (SNVs).
+    more_info: [Genome dynamics](./analysis_types/genome-dynamics.md)
 
 # Sample Status
 # --------------
@@ -188,7 +192,7 @@ running_mode:
     description: |
       Enables all analysis types, including resource-intensive processes like
       genome assembly and comprehensive variant analysis.
-    analysis_type: [taxonomic-profiling, pathogen, assembly, genome-dynamics]
+    analysis_type: [taxonomic-profiling, pathogen-detection, assembly, genome-dynamics]
 
 # Confidence Level
 # ----------------
@@ -206,7 +210,7 @@ confidence_level:
     analysis_workflow:
       - analysis_type: assembly
         description: "Assemble reads into contigs"
-      - analysis_type: [taxonomic-profiling, pathogen]
+      - analysis_type: [taxonomic-profiling, pathogen-detection]
         description: "Generate taxonomic/functional profiles using both contigs and reads separately"
         notes: "Uses both assembled contigs and raw reads to generate the most accurate possible profile."
 
@@ -219,7 +223,7 @@ confidence_level:
       sequencing reads. While faster and less computationally intensive, it may
       miss some genomic context that could improve accuracy, particularly in
       regions with repetitive sequences or closely related organisms.
-    analysis_type: [taxonomic-profiling, pathogen]
+    analysis_type: [taxonomic-profiling, pathogen-detection]
         notes: "Direct analysis of raw sequencing reads"
     is_default: true
 

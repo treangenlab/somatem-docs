@@ -14,7 +14,7 @@ data_type: ""
 # describe the type of analysis you want to perform from the options below
 # 1. taxonomic-profiling = Profiling the taxonomic composition (species match and relative abundance)
 # 2. assembly = assemble the reads into genomes to yield annotated genome/contigs (.fasta) and circos plot
-# 3. pathogen = detect pathogens in the reads using functional profiling (based on genes/functional sequences of known pathogens)
+# 3. pathogen-detection = detect pathogens in the reads using functional profiling (based on genes/functional sequences of known pathogens)
 # 4. genome-dynamics = genomic variation across multiple samples (time-series or cross-section). Provides a variant abundance over time plot. 
 analysis_type: ""
 
