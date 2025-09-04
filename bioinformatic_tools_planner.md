@@ -221,3 +221,21 @@ _(→ Functional annotation of coding sequences, gene product names, EC numbers,
 
 TODO: 
 - [ ] Add more nodes to this list or use the full flowchart. _This was only a starting point with a few key nodes to get started._
+
+# Tool knowledge
+Underwhat circumstances should each tool be used? and what are the pros and cons.
+
+## Taxonomic profiling
+- EMU
+- LEMUR
+  - Pros: Lemur can efficiently process large datasets within minutes to hours in limited computational resource settings.
+  - Cons: Reliance on bacterial marker genes necessarily implies it cannot generalize to viral genome classification. 
+      - Less sensitive than Kraken 2 or MetaMaps, which use all long reads and complete genomes. 
+      - a bacteria from a novel, i.e. out-of-database family will necessarily be missed by Lemur.
+      - 
+- MAGNET: Use magnet to correct false positives from lemur. Magnet, particularly in the presence of low-abundance or low-coverage data, it can improve precision by detecting and filtering out many false positive calls. The goal of Magnet is to detect and remove potential false positives by performing competitive read alignment leveraging all of the reads mapped against the entire reference genome (rather than just the marker gene reads and marker genes used by Lemur). 
+  - Pros: post-processing with Magnet doesn’t incur much additional cost for small and medium datasets
+  - Cons: On the large and diverse data, post-processing with Magnet takes a significant portion of total time due to richer microbial composition of the dataset. 
+  - Spiel: relying on a wide pool of single-copy universal marker genes allows Lemur to achieve high recall and relative abundance estimation accuracy while using only a small portion of the input data. These markers cover all bacteria but only a fraction of any given genome. In contrast, Magnet starts with the set of genomes identified by Lemur and evaluates the read-alignment quality and coverage distributions across the genome to make a maximally informed call about whether the putative genome is actually in the sample. 
+
+## Assembly
