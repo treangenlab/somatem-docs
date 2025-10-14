@@ -1,5 +1,14 @@
 # Mapping Metadata Documentation
-# This file documents the metadata fields and their implications for the SOMAteM pipeline
+# This file documents the metadata fields and their implications for the Somatem pipeline
+
+# Structure: Each top-level key (data_type, analysis_type, etc.) contains a list of items,
+# where each item has a 'name', 'definition', and optionally 'description' field.
+# The loader combines 'definition' and 'description' into a single description string.
+
+# NOTE: This file is loaded by chatbot/config/config_constants.py to provide metadata
+# descriptions throughout the application. Changes to this file will automatically be
+# reflected in the chatbot's responses.
+
 
 # Data Types
 # ----------
@@ -9,7 +18,7 @@ data_type:
     definition: |
       16S amplicon sequencing data from a microbial community. This is the most common
       type of data for profiling microbial communities in a cost-effective manner.
-    details: |
+    description: |
       16S ribosomal RNA-based analysis is the established standard for elucidating the
       composition of microbial communities. While short-read 16S rRNA analyses are
       largely confined to genus-level resolution at best, given that only a portion of
@@ -59,7 +68,7 @@ analysis_type:
       Taxonomic profiling is the process of identifying the taxonomic identity
       (genus, species, strain) of each read in a metagenomic sample (16S, shotgun)
       and computing the relative abundance of each taxon in the sample.
-    more_info: [Taxonomic profiling](./analysis_types/taxonomic-profiling.md)
+    more_info: ./analysis_types/taxonomic-profiling.md
 
   - name: assembly
     definition: |
@@ -69,7 +78,7 @@ analysis_type:
       Assembly is the process of reconstructing the genome of a microbial isolate
       or metagenome assembled genomes (MAGs) from genomic DNA sequence reads. Output includes
       annotated genome/contigs (.fasta format) and visualization (e.g., circos plots).
-    more_info: [Assembly](./analysis_types/assembly.md)
+    more_info: ./analysis_types/assembly.md
 
   - name: pathogen-detection
     definition: |
@@ -79,7 +88,7 @@ analysis_type:
       Pathogen detection identifies the presence of pathogens in a metagenomic
       sample (16S, shotgun) by analyzing virulence genes and functional sequences
       associated with known pathogens.
-    more_info: [Pathogen detection](./analysis_types/pathogen-detection.md)
+    more_info: ./analysis_types/pathogen-detection.md
 
   - name: genome-dynamics
     definition: |
@@ -91,7 +100,7 @@ analysis_type:
     notes: |
       Specialized tool for genomic variation analysis from time-series samples.
       Can identify both structural variants (SVs) and single nucleotide variants (SNVs).
-    more_info: [Genome dynamics](./analysis_types/genome-dynamics.md)
+    more_info: ./analysis_types/genome-dynamics.md
 
 # Sample Status
 # --------------
@@ -224,7 +233,7 @@ confidence_level:
       miss some genomic context that could improve accuracy, particularly in
       regions with repetitive sequences or closely related organisms.
     analysis_type: [taxonomic-profiling, pathogen-detection]
-        notes: "Direct analysis of raw sequencing reads"
+    notes: "Direct analysis of raw sequencing reads"
     is_default: true
 
 
