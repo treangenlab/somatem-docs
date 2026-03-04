@@ -1,0 +1,22 @@
+%%metro title: Simple Pipeline
+%%metro style: light
+%%metro line: main | Main | #4CAF50
+%%metro line: qc | Quality Control | #2196F3
+%%metro line: preprocess | Preprocessing | #FF9800
+
+graph LR
+    input[Input]
+    fastqc[FastQC]
+    trim[Trimming]
+    align[Alignment]
+    quant[Quantification]
+    multiqc[MultiQC]
+
+    input -->|preprocess| Preprocess
+    Preprocess -->|main| trim
+    trim -->|main| align
+    align -->|main| quant
+    Preprocess -->|qc| fastqc
+    trim -->|qc| fastqc
+    quant -->|qc| multiqc
+    fastqc -->|qc| multiqc
