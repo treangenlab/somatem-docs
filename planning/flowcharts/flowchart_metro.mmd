@@ -1,0 +1,117 @@
+%%metro title: somatem pipeline
+%%metro style: light
+%%metro file: fastq_in | FASTQ
+%%metro file: cleaned | FASTQ
+%%metro file: report_final | HTML
+
+%%metro line: taxp | taxonomic profiling | #4CAF50
+%%metro line: taxp_16S | 16S taxonomic profiling | #2b5a2d
+
+%%metro line: func | functional annotation | #2196F3
+%%metro line: asm | assembly | #F44336
+%%metro line: rhea | longitudinal analysis | #9C27B0
+%%metro legend: bl
+ 
+graph LR
+
+    fastq_in[(Nanopore | Pacbio)] 
+    
+    subgraph preprocessing [Pre-processing]
+        %%metro direction: LR   
+        %%metro entry: left | taxp,taxp_16S,func,asm,rhea
+        %%metro exit: bottom | taxp,taxp_16S,func,asm,rhea
+        initqc[NanoPlot: raw read qc]
+        trimming[chopper: quality/adapter trimming]  
+        dehost[hostile: remove host contamination]
+        finalqc[NanoPlot: final qc]
+        
+        cleaned[(cleaned reads)]
+        initqc -->|taxp,taxp_16S,func,asm,rhea| trimming
+
+        trimming -->|taxp,func,asm,rhea| dehost 
+        dehost -->|taxp,func,asm,rhea| finalqc
+        trimming -->|taxp_16S| finalqc 
+        
+        finalqc -->|taxp,taxp_16S,func,asm,rhea| cleaned
+    end
+
+    subgraph assembly [Assembly]
+        %%metro direction: TB
+        %%metro entry: left | asm
+        %%metro exit: bottom | asm
+        denovo[metaFlye: De novo assembly]
+        %%  refguided["Reference-guided<br>(MetaCompass)"]
+        binning[Minimap2 + Semibin2: Binning]
+        genomeqc[CheckM2: Genome completeness, QC]
+        annotation[Bakta: Genome annotation]
+        %% contigs[contigs]
+
+        denovo -->|asm| binning
+        binning -->|asm| genomeqc
+        genomeqc -->|asm| annotation
+        annotation -->|asm| genome[circos plots, genomes]
+
+        %% for future implementation 
+        %% othergenomic(["multi-genomic analyses"])
+        %% pangenomics["Pangenomics<br>(tmhg-finder)"]
+        %% metabolic["Metabolic reconstruction<br>(bakdrive + micom | apollo)"]
+        %% othergenomic --> pangenomics & genesnp & metabolic
+    end
+
+    subgraph analysis [Analysis]
+        %%metro entry: left | taxp, taxp_16S, func, rhea
+        %%metro exit: bottom | taxp, taxp_16S, func, rhea
+        genesnp[rhea: Structural variation ~ Gene duplication/loss]
+        pathogen[SeqScreen: Pathogen identification]
+        taxonomic[Lemur + MAGnet : Taxonomic profiling]
+        taxonomic16S[Emu (16S): Taxonomic profiling]
+        
+        report_final[(final report)]
+        multiqc[MultiQC]
+        
+        taxonomic -->|taxp| multiqc
+        taxonomic16S -->|taxp_16S| multiqc
+        pathogen -->|func| multiqc
+        genesnp -->|rhea| multiqc
+        multiqc -->|taxp, taxp_16S, func, rhea| report_final
+    end
+
+    %% Inter-section edges
+    fastq_in -->|taxp,taxp_16S,func,asm,rhea| initqc
+
+    cleaned -->|taxp| taxonomic 
+    cleaned -->|taxp_16S| taxonomic16S 
+    cleaned -->|func| pathogen
+    cleaned -->|asm| denovo
+    cleaned -->|rhea| genesnp
+
+    %%  Co-analysis for higher confidence
+    %%  hard to show this even as a sub-graph (distorts the flowchart)
+    %%  co-analysis["Co-analysis for higher confidence"] 
+    %%  reads & contigs --> co-analysis --> taxonomic & pathogen 
+
+
+    %% Style rendering
+        %% style contigs fill:#C8E6C9
+        %% style reads fill:#C8E6C9
+        %% style genome fill:#BBDEFB 
+        %% style rawreads fill:#FFE0B2
+
+    %% Notes: from v1-whiteboard
+    %% What could be "Synthetic data" near data types?
+    %% preprocessing: 
+    %%   add length to trimming node (length filtering)
+    %%   add depth sampling node
+    %% Taxonomic profiling: 
+    %%   MAGnet, Sylph: removed for now ; will add back when implemented + choice is clear
+    %% Functional annotation:
+    %%   SeqScreen et. al. don't work on laptop. Move to workstation mode?
+    %%   Rethink functional annotation name to "ARG" and add `AMR++ with the megares 3 db` to it?
+    %% Assembly: 
+    %%   Refguided: node removed ; metaCompass not compatible with long-reads
+    %% Metabolic reconstruction:
+    %%   Bakdrive can take in emu output (Austin). Check and include in the flowchart. 
+    %% Database: 
+    %%   Add node to show databases in a node?
+    %%   Bacteria: GTDB, RefSeq, Plasmid/ARG, viral: ..
+    %% Final report: Find a way to show the final report in the flowchart?
