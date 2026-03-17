@@ -3,6 +3,8 @@
 %%metro file: fastq_in | FASTQ
 %%metro file: cleaned | FASTQ
 %%metro file: report_final | HTML
+%%metro file: genomemap | HTML
+
 
 %%metro line: taxp | taxonomic profiling | #4CAF50
 %%metro line: taxp_16S | 16S taxonomic profiling | #2b5a2d
@@ -14,18 +16,18 @@
  
 graph LR
 
-    fastq_in[(Nanopore | Pacbio)] 
+    fastq_in[RAW READS] 
     
     subgraph preprocessing [Pre-processing]
-        %%metro direction: LR   
-        %%metro entry: left | taxp,taxp_16S,func,asm,rhea
+        %%metro direction: TB   
+        %%metro entry: top | taxp,taxp_16S,func,asm,rhea
         %%metro exit: bottom | taxp,taxp_16S,func,asm,rhea
-        initqc[NanoPlot: raw read qc]
-        trimming[chopper: quality/adapter trimming]  
-        dehost[hostile: remove host contamination]
-        finalqc[NanoPlot: final qc]
+        initqc[Read QC \n NanoPlot]
+        trimming[Filter/Trim \n chopper]  
+        dehost[Remove host \n hostile]
+        finalqc[Clean QC \n NanoPlot]
         
-        cleaned[(cleaned reads)]
+        cleaned[CLEAN READS]
         initqc -->|taxp,taxp_16S,func,asm,rhea| trimming
 
         trimming -->|taxp,func,asm,rhea| dehost 
@@ -39,17 +41,18 @@ graph LR
         %%metro direction: TB
         %%metro entry: left | asm
         %%metro exit: bottom | asm
-        denovo[metaFlye: De novo assembly]
+        denovo[Assemble \n metaFlye]
         %%  refguided["Reference-guided<br>(MetaCompass)"]
-        binning[Minimap2 + Semibin2: Binning]
-        genomeqc[CheckM2: Genome completeness, QC]
-        annotation[Bakta: Genome annotation]
+        binning[Bin \n Semibin2]
+        genomeqc[Genome QC \n CheckM2]
+        annotation[Annotate \n Bakta]
+        genomemap[circos plot]
         %% contigs[contigs]
 
         denovo -->|asm| binning
         binning -->|asm| genomeqc
         genomeqc -->|asm| annotation
-        annotation -->|asm| genome[circos plots, genomes]
+        annotation -->|asm| genomemap
 
         %% for future implementation 
         %% othergenomic(["multi-genomic analyses"])
@@ -60,13 +63,12 @@ graph LR
 
     subgraph analysis [Analysis]
         %%metro entry: left | taxp, taxp_16S, func, rhea
-        %%metro exit: bottom | taxp, taxp_16S, func, rhea
-        genesnp[rhea: Structural variation ~ Gene duplication/loss]
-        pathogen[SeqScreen: Pathogen identification]
-        taxonomic[Lemur + MAGnet : Taxonomic profiling]
-        taxonomic16S[Emu (16S): Taxonomic profiling]
+        genesnp[SV detect \n rhea]
+        pathogen[Pathogen screen \n SeqScreen]
+        taxonomic[Taxonomic \n Lemur, Magnet]
+        taxonomic16S[Taxonomic \n Emu (16S)]
         
-        report_final[(final report)]
+        report_final[ ]
         multiqc[MultiQC]
         
         taxonomic -->|taxp| multiqc
@@ -79,10 +81,11 @@ graph LR
     %% Inter-section edges
     fastq_in -->|taxp,taxp_16S,func,asm,rhea| initqc
 
+    cleaned -->|asm| denovo
+    
     cleaned -->|taxp| taxonomic 
     cleaned -->|taxp_16S| taxonomic16S 
     cleaned -->|func| pathogen
-    cleaned -->|asm| denovo
     cleaned -->|rhea| genesnp
 
     %%  Co-analysis for higher confidence
@@ -115,3 +118,4 @@ graph LR
     %%   Add node to show databases in a node?
     %%   Bacteria: GTDB, RefSeq, Plasmid/ARG, viral: ..
     %% Final report: Find a way to show the final report in the flowchart?
+end
