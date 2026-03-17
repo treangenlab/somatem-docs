@@ -1,7 +1,6 @@
 Tool Name,Category,Description,GitHub/GitLab Link,Citation Link,nf-core Module Link,Notes
 myloasm,Assembly,Long-read metagenome assembler,https://github.com/bluenote-1577/myloasm,,,Optimized for metagenomic data
-MetagenomeScope,Reporting,Visualization,Visualization and analysis of metagenome-assembled genomes,https://github.com/marbl/MetagenomeScope,https://doi.org/10.1186/s12859-019-2986-z,,Interactive visualization of MAGs
-Sylph,Taxonomic profiling,Rapid and accurate species level taxonomic profiling using k-mer sketches,https://github.com/bluenote-1577/sylph,https://www.nature.com/articles/s41587-024-02412-y,,
+bandage,Visualization,Interactive visualization of assemblies,https://github.com/rrwick/Bandage,http://bioinformatics.oxfordjournals.org/content/31/20/3350,https://github.com/nf-core/modules/tree/master/modules/nf-core/bandage/image,Useful to run after rhea
 
 agb,,,,,
 centrifuger,,,,,
