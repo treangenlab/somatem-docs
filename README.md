@@ -1,1 +1,1 @@
-bioinformatic_tools_planner.md
+planning/bioinformatic_tools_planner.md
