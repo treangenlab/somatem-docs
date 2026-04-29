@@ -32,6 +32,7 @@ docs/somatem-docs/RAG_docs_exchange/tool_parameters/<tool>_params.md
 4. Cut the entire section from the README
 5. Create the target file at `../tool_parameters/<tool>_params.md` if it doesn't exist
 6. Paste the parameter section into the target file
+7. Assign the type of the code blocks to shell if they are not already (````sh````)
 
 ### Example
 **Source:** `docs/somatem-docs/RAG_docs_exchange/githubs/Lemur_README.md` (lines 65-113)
@@ -42,7 +43,10 @@ docs/somatem-docs/RAG_docs_exchange/tool_parameters/<tool>_params.md
 ## Step 2: Identify Parameters
 
 ### Action
-Parse the extracted parameter file to identify all configurable parameters.
+Parse the extracted parameter file to identify all configurable parameters. 
+- Ignore essential parameters that are already present in the module such as input, output, database path. 
+- (the idea is to focus on optional parameters that can be tuned for performance or accuracy)
+- Prefer the long form of parameters when available (e.g., `--min-aln-len-ratio` instead of `-m`)
 
 ### Parameter Patterns to Look For
 - Short form: `-i INPUT`, `-r RANK`
@@ -52,9 +56,6 @@ Parse the extracted parameter file to identify all configurable parameters.
 ### Output Format
 Create a list of parameter names (long form preferred):
 ```
-input
-output
-db-prefix
 tax-path
 num-threads
 aln-score

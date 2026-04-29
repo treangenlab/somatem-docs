@@ -3,7 +3,7 @@
 ### Parameter descriptions
 
 Main arguments:
-```
+```sh
   -i INPUT, --input INPUT
                         Input FASTQ file for the analysis
   -o OUTPUT, --output OUTPUT
@@ -25,7 +25,7 @@ Main arguments:
 ```
 
 minimap2 arguments:
-```
+```sh
   --mm2-N MM2_N         minimap max number of secondary alignments per read [50]
   --mm2-K MM2_K         minibatch size for minimap2 mapping [500M]
   --mm2-type {map-ont,map-hifi,map-pb,sr}
@@ -33,7 +33,7 @@ minimap2 arguments:
 ```
 
 Miscellaneous arguments:
-```
+```sh
   --keep-alignments     Keep SAM files after the mapping (might require a lot of disk space)
   -e LOG_FILE, --log-file LOG_FILE
                         File for logging [default: stdout]
@@ -45,7 +45,7 @@ Miscellaneous arguments:
 ```
 
 Additional flags:
-```
+```sh
   -h, --help            show usage help message and exit
   -v, --version         show program's version number and exit
 ```
