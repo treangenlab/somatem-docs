@@ -32,7 +32,8 @@ docs/somatem-docs/RAG_docs_exchange/tool_parameters/<tool>_params.md
 4. Cut the entire section from the README
 5. Create the target file at `../tool_parameters/<tool>_params.md` if it doesn't exist
 6. Paste the parameter section into the target file
-7. Assign the type of the code blocks to shell if they are not already (````sh````)
+7. Neatly format the tools within code blocks. Convert any table or paragraph formatted ones by retaining context as comments within the code blocks
+8. Assign the type of the code blocks to shell if they are not already (````sh````)
 
 ### Example
 **Source:** `docs/somatem-docs/RAG_docs_exchange/githubs/Lemur_README.md` (lines 65-113)
@@ -72,6 +73,8 @@ min-aln-len-ratio
 Add identified parameters to various parameter files with tool name prefix. 
 The parameter file depends on the tool category (e.g., taxonomic_profiling, assembly, etc.). 
 Example: `conf/parameters/taxonomic_profiling.config` for `lemur` tool.
+- Add brief comments explaining the purpose of the parameter after the default value if it is not obvious from the name
+- Note: Some parameters might be used across multiple tools, so check if they already exist in the target config file. Make a note in comments for manual review.
 
 ### Prefix Format
 ```
@@ -108,6 +111,7 @@ params {
 | Taxonomic Config | `conf/parameters/taxonomic_profiling.config` |
 | Preprocessing Config | `conf/parameters/preprocessing.config` |
 | Assembly Config | `conf/parameters/assembly_mags.config` |
+| Genome Dynamics Config | `conf/parameters/genome_dynamics.config` |
 
 ---
 
@@ -115,9 +119,10 @@ params {
 
 | Category | Tools | Config File |
 |----------|-------|-------------|
-| Taxonomic Profiling | Lemur, Kraken2, Centrifuge | `conf/parameters/taxonomic_profiling.config` |
-| Preprocessing | Chopper, NanoPlot | `conf/parameters/preprocessing.config` |
+| Taxonomic Profiling | Emu, Lemur, magnet, Kraken2, Centrifuge | `conf/parameters/taxonomic_profiling.config` |
+| Preprocessing | Chopper, NanoPlot, Hostile | `conf/parameters/preprocessing.config` |
 | Assembly/MAGs | AGB, CheckM2, Bakta | `conf/parameters/assembly_mags.config` |
+| Genome dynamics | rhea | `conf/parameters/genome_dynamics.config` |
 
 ---
 
