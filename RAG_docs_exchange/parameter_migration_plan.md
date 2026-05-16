@@ -13,7 +13,7 @@ This document describes the workflow for extracting tool parameters from README 
 ## Step 1: Extract Parameter Section
 
 ### Action
-Cut the `### Parameter descriptions` section from the tool README file.
+Cut the section describing parameters from the tool README file.
 
 ### Source File Format
 ```
@@ -27,7 +27,8 @@ docs/somatem-docs/RAG_docs_exchange/tool_parameters/<tool>_params.md
 
 ### Procedure
 1. Open `<TOOL>_README.md`
-2. Locate the `### Parameter descriptions` section heading
+2. Locate the headers with one or more `#` symbols and keywords such as `parameter`, `usage`, `getting started` etc.
+   - example: `### Parameter descriptions` section heading
 3. Identify the end of the section (usually the next `##` heading or end of file)
 4. Cut the entire section from the README
 5. Create the target file at `../tool_parameters/<tool>_params.md` if it doesn't exist
@@ -64,6 +65,14 @@ rank
 min-aln-len-ratio
 ...
 ```
+
+## Step 2.5: Create a parameter list from the tool's help message
+If step 1 and 2 fail for a particular tool, try to extract parameters from the tool's help message.
+
+a. Locate the tool's micromamba environment within `~/micromamba/` using `rg "bin/<tool_name>" ~/micromamba/`
+b. Extract parameters from the help message using `micromamba run <environment_path> -p <tool_name> --help`
+c. Create a parameter list from the help message in the same format as step 2
+
 
 ---
 
